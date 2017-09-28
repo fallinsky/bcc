@@ -24,13 +24,13 @@ set_target_properties(bpf-static PROPERTIES OUTPUT_NAME bpf)
 add_library(bpf-shared SHARED libbpf.c perf_reader.c)
 set_target_properties(bpf-shared PROPERTIES OUTPUT_NAME bpf)
 
-set(bcc_common_sources bpf_common.cc bpf_module.cc exported_files.cc)
+set(bcc_common_sources bpf_common.cc bpf_module.cc exported_files.cc bcc_debug.cc)
 set(bcc_table_sources table_storage.cc shared_table.cc bpffs_table.cc json_map_decl_visitor.cc)
 set(bcc_util_sources ns_guard.cc common.cc)
 set(bcc_sym_sources bcc_syms.cc bcc_elf.c bcc_perf_map.c bcc_proc.c)
 set(bcc_common_headers libbpf.h perf_reader.h)
 set(bcc_table_headers file_desc.h table_desc.h table_storage.h)
-set(bcc_api_headers bpf_common.h bpf_module.h bcc_exception.h bcc_syms.h)
+set(bcc_api_headers bpf_common.h bpf_module.h bcc_exception.h bcc_syms.h bcc_debug.h)
 
 if(ENABLE_CLANG_JIT)
 add_library(bcc-shared SHARED

@@ -1,5 +1,5 @@
-set(llvm_raw_libs bitwriter bpfcodegen irreader linker
-  mcjit objcarcopts option passes nativecodegen lto)
+set(llvm_raw_libs bitwriter bpfcodegen bpfdisassembler irreader linker
+  mcjit objcarcopts option passes nativecodegen lto debuginfodwarf)
 list(FIND LLVM_AVAILABLE_LIBS "LLVMCoverage" _llvm_coverage)
 if (${_llvm_coverage} GREATER -1)
   list(APPEND llvm_raw_libs coverage)
